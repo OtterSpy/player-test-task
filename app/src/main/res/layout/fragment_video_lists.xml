@@ -24,6 +24,7 @@
             tools:text="@string/app_name" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/horizontalListRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:clipToPadding="false"

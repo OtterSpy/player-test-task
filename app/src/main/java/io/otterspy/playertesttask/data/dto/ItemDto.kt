@@ -11,9 +11,3 @@ data class ItemDto(
     val snippet: Snippet,
     val statistics: StatisticsDto
 )
-
-fun ItemDto.toItem() {
-    Item(
-        snippet
-    )
-}

@@ -1,5 +1,6 @@
 package io.otterspy.playertesttask.data
 
+import io.otterspy.playertesttask.data.dto.ListVideosDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -12,5 +13,5 @@ interface YouTubeApi {
         @Query("regionCode") regionCode: String,
         @Query("maxResults") maxResults: Int,
         @Query("videoCategoryId") videoCategoryId: Int
-    )
+    ) : ListVideosDto
 }

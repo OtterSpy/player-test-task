@@ -11,9 +11,8 @@ data class ListVideosDto(
     val pageInfo: PageInfoDto
 )
 
-fun ListVideosDto.toListVideos() {
+fun ListVideosDto.toListVideos() =
     ListVideos(
         items,
         nextPageToken
     )
-}
