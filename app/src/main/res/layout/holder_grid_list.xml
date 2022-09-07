@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/gridPreviewImageView"
+            android:layout_width="96dp"
+            android:layout_height="74dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.SelectedCornerRadius"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/gridListVideoNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/main_text_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/gridPreviewImageView"
+            app:layout_constraintStart_toStartOf="@+id/gridPreviewImageView"
+            app:layout_constraintTop_toBottomOf="@+id/gridPreviewImageView"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/gridListChannelNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAllCaps="true"
+            android:textColor="@color/blue_text_color_alpha_70"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/gridListVideoNameTextView"
+            app:layout_constraintStart_toStartOf="@+id/gridListVideoNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/gridListVideoNameTextView"
+            tools:ignore="SmallSp"
+            tools:text="TextView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
