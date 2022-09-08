@@ -8,5 +8,5 @@ interface YouTubeRepository {
                                           chart: String,
                                           regionCode: String,
                                           maxResults: Int,
-                                          videoCategoryId: Int): ListVideos
+                                          videoCategoryId: Int?): ListVideos
 }

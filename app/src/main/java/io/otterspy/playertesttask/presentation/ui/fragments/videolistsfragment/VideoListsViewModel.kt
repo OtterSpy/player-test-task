@@ -10,37 +10,49 @@ import io.otterspy.playertesttask.common.Constants.PART
 import io.otterspy.playertesttask.common.Constants.REGION_CODE
 import io.otterspy.playertesttask.common.Resource
 import io.otterspy.playertesttask.domain.model.Item
-import io.otterspy.playertesttask.domain.usecase.GetMostPopularMusicVideosUseCase
+import io.otterspy.playertesttask.domain.usecase.GetVideosUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class VideoListsViewModel @Inject constructor(
-    private val getMostPopularMusicVideosUseCase: GetMostPopularMusicVideosUseCase
+    private val getMostPopularMusicVideosUseCase: GetVideosUseCase
 ) : ViewModel() {
 
-    private val _mostPopularMusicList = MutableLiveData<Resource<List<Item>>>()
-    val mostPopularMusicList: LiveData<Resource<List<Item>>>
-        get() = _mostPopularMusicList
+    private val _mostPopularMusicHorizontalList = MutableLiveData<Resource<List<Item>>>()
+    val mostPopularMusicHorizontalList: LiveData<Resource<List<Item>>>
+        get() = _mostPopularMusicHorizontalList
 
-    fun getMostPopularMusicList(category: Int) {
-        _mostPopularMusicList.value = Resource.loading()
+    private val _mostPopularMusicGridList = MutableLiveData<Resource<List<Item>>>()
+    val mostPopularMusicGridList: LiveData<Resource<List<Item>>>
+        get() = _mostPopularMusicGridList
+
+    fun getMostPopularMusicHorizontalList(category: Int, maxResults: Int) {
+        getMostPopularList(category, maxResults, _mostPopularMusicHorizontalList)
+    }
+
+    fun getMostPopularGridList(category: Int?, maxResults: Int) {
+        getMostPopularList(category, maxResults, _mostPopularMusicGridList)
+    }
+
+    private fun getMostPopularList(category: Int?, maxResults: Int, musicList: MutableLiveData<Resource<List<Item>>>) {
+        musicList.value = Resource.loading()
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                _mostPopularMusicList.postValue(
+                musicList.postValue(
                     Resource.success(
                         getMostPopularMusicVideosUseCase(
                             API_KEY,
                             PART,
                             CHART,
                             REGION_CODE,
-                            20,
+                            maxResults,
                             category
                         )
                     )
                 )
             } catch (t: Throwable) {
-                _mostPopularMusicList.postValue(
+                musicList.postValue(
                     Resource.error(t.message ?: "Oops. Something Went Wrong")
                 )
             }

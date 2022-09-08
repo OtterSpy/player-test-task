@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import io.otterspy.playertesttask.databinding.HolderHorizontalListBinding
+import io.otterspy.playertesttask.databinding.HolderGridListBinding
 import io.otterspy.playertesttask.domain.model.Item
-import io.otterspy.playertesttask.presentation.ui.fragments.videolistsfragment.adapters.holders.HorizontalListViewHolder
+import io.otterspy.playertesttask.presentation.ui.fragments.videolistsfragment.adapters.holders.GridListViewHolder
 
-class HorizontalListAdapter : ListAdapter<Item, RecyclerView.ViewHolder>(Companion) {
+class GridListAdapter : ListAdapter<Item, RecyclerView.ViewHolder>(Companion) {
 
     private var onItemClickListener: ((Item) -> Unit)? = null
 
@@ -29,26 +29,21 @@ class HorizontalListAdapter : ListAdapter<Item, RecyclerView.ViewHolder>(Compani
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return HorizontalListViewHolder(
-            HolderHorizontalListBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+        return GridListViewHolder(
+            HolderGridListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is HorizontalListViewHolder -> {
+            is GridListViewHolder -> {
                 getItem(position).let { item ->
                     holder.bind(item)
-                    holder.binding.horizontalHolderLinearLayout.setOnClickListener {
+                    holder.binding.gridListCardView.setOnClickListener {
                         onItemClickListener?.invoke(item)
                     }
                 }
             }
         }
     }
-
 }

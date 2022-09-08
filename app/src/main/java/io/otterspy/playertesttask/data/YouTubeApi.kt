@@ -12,6 +12,6 @@ interface YouTubeApi {
         @Query("chart") chart: String,
         @Query("regionCode") regionCode: String,
         @Query("maxResults") maxResults: Int,
-        @Query("videoCategoryId") videoCategoryId: Int
+        @Query("videoCategoryId") videoCategoryId: Int?
     ) : ListVideosDto
 }

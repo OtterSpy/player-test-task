@@ -15,7 +15,7 @@ class YouTubeRepositoryImpl @Inject constructor(
         chart: String,
         regionCode: String,
         maxResults: Int,
-        videoCategoryId: Int
+        videoCategoryId: Int?
     ): ListVideos =
         youTubeApi.getVideosList(apiKey, part, chart, regionCode, maxResults, videoCategoryId)
             .toListVideos()
