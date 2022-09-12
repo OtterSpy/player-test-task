@@ -6,52 +6,56 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gridListCardView"
         android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <View
+            android:id="@+id/shadowBackgroundView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_gradient_shadow_50"
+            app:layout_constraintBottom_toBottomOf="@id/gridListVideoNameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gridPreviewImageView" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/gridPreviewImageView"
             android:layout_width="0dp"
             android:layout_height="74dp"
-            android:scaleType="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.SelectedCornerRadius"
             tools:src="@tools:sample/avatars" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/gridListVideoNameTextView"
+            style="@style/mainTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="@color/main_text_color"
-            android:textSize="14sp"
             android:gravity="center"
-            android:maxLines="1"
-            android:ellipsize="end"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/gridPreviewImageView"
             app:layout_constraintStart_toStartOf="@+id/gridPreviewImageView"
             app:layout_constraintTop_toBottomOf="@+id/gridPreviewImageView"
             tools:text="TextView" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/gridListChannelNameTextView"
+            style="@style/blueTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textAllCaps="true"
-            android:textColor="@color/blue_text_color_alpha_70"
-            android:textSize="10sp"
             android:gravity="center"
-            android:maxLines="1"
-            android:ellipsize="end"
+            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/gridListVideoNameTextView"
             app:layout_constraintStart_toStartOf="@+id/gridListVideoNameTextView"
             app:layout_constraintTop_toBottomOf="@+id/gridListVideoNameTextView"
             tools:ignore="SmallSp"
             tools:text="TextView" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

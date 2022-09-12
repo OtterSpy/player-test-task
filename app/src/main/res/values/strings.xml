@@ -4,4 +4,5 @@
     <string name="horizontal_list_title">Топ-20 пісні України</string>
     <string name="grid_list_title">Топ-30 відео в Україні</string>
     <string name="no_data_text">No Data</string>
+    <string name="playing_now_text">Playing now</string>
 </resources>

@@ -1,6 +1,5 @@
 package io.otterspy.playertesttask.data.dto
 
-import io.otterspy.playertesttask.domain.model.Item
 import io.otterspy.playertesttask.domain.model.Snippet
 
 data class ItemDto(

@@ -3,55 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/horizontalHolderLinearLayout"
         android:layout_width="190dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="vertical"
         tools:background="@color/background_color">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp">
+        <View
+            android:id="@+id/shadowBackgroundView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_gradient_shadow_50"
+            app:layout_constraintBottom_toBottomOf="@id/channelNameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageContainerCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toTopOf="@id/videoNameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/listHolderImageView"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/backgrounds/scenic" />
         </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/videoNameTextView"
-            android:layout_width="match_parent"
+            style="@style/mainTextStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:ellipsize="end"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:maxLines="2"
-            android:textColor="@color/main_text_color"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageContainerCardView"
             tools:text="Test_Text" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/channelNameTextView"
+            style="@style/blueTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:textAllCaps="true"
-            android:textColor="@color/blue_text_color_alpha_70"
             android:textSize="10sp"
-            android:textStyle="bold"
-            tools:text="Test_Text"
-            tools:ignore="SmallSp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/videoNameTextView"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="SmallSp"
+            tools:text="Test_Text" />
 
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

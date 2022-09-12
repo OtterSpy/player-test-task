@@ -16,7 +16,14 @@ class GetVideosUseCase @Inject constructor(
         videoCategoryId: Int?
     ): List<Item> {
         return try {
-            repository.getMostPopularMusicVideos(apiKey, part, chart, regionCode, maxResults, videoCategoryId).items
+            repository.getMostPopularMusicVideos(
+                apiKey,
+                part,
+                chart,
+                regionCode,
+                maxResults,
+                videoCategoryId
+            ).items
         } catch (t: Throwable) {
             error(t.message!!)
         }

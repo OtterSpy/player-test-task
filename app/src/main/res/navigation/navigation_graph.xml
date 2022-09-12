@@ -10,5 +10,26 @@
         android:id="@+id/videoListsFragment"
         android:name="io.otterspy.playertesttask.presentation.ui.fragments.videolistsfragment.VideoListsFragment"
         android:label="VideoListsFragment"
-        tools:layout="@layout/fragment_video_lists"/>
+        tools:layout="@layout/fragment_video_lists">
+        <action
+            android:id="@+id/action_videoListsFragment_to_mediaPlayerFragment"
+            app:destination="@id/mediaPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mediaPlayerFragment"
+        android:name="io.otterspy.playertesttask.presentation.ui.fragments.mediaplayerfragment.MediaPlayerFragment"
+        android:label="MediaPlayerFragment"
+        tools:layout="@layout/fragment_media_player">
+        <argument
+            android:name="item"
+            app:argType="io.otterspy.playertesttask.domain.model.Item" />
+        <argument
+            android:name="itemIdList"
+            app:argType="io.otterspy.playertesttask.domain.model.ItemIdList" />
+        <action
+            android:id="@+id/action_mediaPlayerFragment_to_videoListsFragment"
+            app:destination="@id/videoListsFragment"
+            app:popUpTo="@+id/startScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
